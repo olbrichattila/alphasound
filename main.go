@@ -28,8 +28,10 @@ func main() {
 	}
 
 	gen := generator.New(params)
-
-	gen.Generate(wavFileName)
+	err = gen.Generate(wavFileName)
+	if err != nil {
+		fmt.Println(err.Error())
+	}
 }
 
 func getParameters() (string, string, error) {
