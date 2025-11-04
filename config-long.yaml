@@ -1,0 +1,90 @@
+# =========================================
+# Sylva Alpha → Theta Generator (30 min)
+# Gradual relaxation and entrainment journey
+# =========================================
+
+# --- Core signal parameters ---
+sampleRate: 44100        # Standard 44.1 kHz audio sample rate
+binauralDiff: 0.3         # Subtle stereo offset in Hz
+ampModRate: 0.5           # Gentle amplitude modulation rate (Hz)
+ampModDepth: 0.2          # Depth of amplitude modulation (0–1)
+freqModRate: 0.3          # Frequency modulation rate (Hz)
+freqModDepth: 0.3         # Depth of frequency modulation (0–1)
+freqNoiseDepth: 0.1       # Adds natural micro-variations
+clickRate: 0.5            # Sparse clicks per second (optional texture)
+clickAmp: 0.25            # Click amplitude (relative)
+clickDurMs: 5.0           # Click duration in milliseconds
+overallGain: 0.9          # Overall loudness multiplier
+noise: 0.02               # Pink noise
+
+# --- Segment progression ---
+# Each segment represents a gradual step downward in entrainment frequency.
+# The carrier frequency gently drops with it for psychoacoustic depth.
+
+durations:
+  # 1️⃣ Mid-alpha (focused calm)
+  - durationSec: 180
+    leftBaseHz: 12.0
+    binauralBeatHz: 12.0
+    carrierHz: 210
+
+  # 2️⃣ Relaxed alpha
+  - durationSec: 180
+    leftBaseHz: 11.5
+    binauralBeatHz: 11.5
+    carrierHz: 208
+
+  # 3️⃣ Soft alpha
+  - durationSec: 180
+    leftBaseHz: 11.0
+    binauralBeatHz: 11.0
+    carrierHz: 206
+
+  # 4️⃣ Upper alpha → transition zone
+  - durationSec: 180
+    leftBaseHz: 10.5
+    binauralBeatHz: 10.5
+    carrierHz: 204
+
+  # 5️⃣ Relaxed alpha (approaching theta border)
+  - durationSec: 180
+    leftBaseHz: 10.0
+    binauralBeatHz: 10.0
+    carrierHz: 202
+
+  # 6️⃣ Alpha/theta blend
+  - durationSec: 180
+    leftBaseHz: 9.0
+    binauralBeatHz: 9.0
+    carrierHz: 200
+
+  # 7️⃣ Light theta onset
+  - durationSec: 180
+    leftBaseHz: 8.0
+    binauralBeatHz: 8.0
+    carrierHz: 198
+
+  # 8️⃣ Mid-theta relaxation
+  - durationSec: 180
+    leftBaseHz: 7.0
+    binauralBeatHz: 7.0
+    carrierHz: 196
+
+  # 9️⃣ Deep theta (meditative depth)
+  - durationSec: 180
+    leftBaseHz: 6.0
+    binauralBeatHz: 6.0
+    carrierHz: 194
+
+  # 🔟 Deep theta tail (integration / pre-sleep)
+  - durationSec: 180
+    leftBaseHz: 5.0
+    binauralBeatHz: 5.0
+    carrierHz: 190
+
+# --- Notes ---
+# ✅ Total duration ≈ 30 minutes (10 × 3 min segments)
+# ✅ Alpha → Theta descent from 12 Hz → 5 Hz
+# ✅ Carrier gently drops 210 Hz → 190 Hz for immersive depth
+# ✅ You can smooth these transitions further in code by interpolating between values frame-to-frame
+# ✅ Extend final theta phase if you want longer post-entrainment calm
