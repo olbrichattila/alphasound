@@ -33,7 +33,7 @@ func (g *generator) Generate(fileName string) error {
 		fmt.Printf(" - generating duration: %d sec\n", duration.DurationSec)
 		totalSamples := g.params.SampleRate * duration.DurationSec
 
-		// előállítjuk a kattogó események időpontjait (Poisson-szerű)
+		// clicking event time slots (Poisson)
 		clickTimes := g.generateClickTimes(g.params.ClickRate, duration.DurationSec)
 		for i := range totalSamples {
 
@@ -57,13 +57,13 @@ func (g *generator) Generate(fileName string) error {
 
 			clickSignal := 0.0
 			for _, ct := range clickTimes {
-				// ablakos rövid impulzus: gauss ablak
+				// windowed short impulse : gauss window
 				dt := t - ct
 				if dt >= 0 && dt < g.params.ClickDurMs/1000.0 {
-					// gauss-ish ablak + magas frekvenciás tartalom a kattogásnak
+					// gauss-ish window + high tone clicks
 					sigma := (g.params.ClickDurMs / 1000.0) / 6.0
 					env := math.Exp(-0.5 * (dt * dt) / (sigma * sigma))
-					// három komponens: gyors oszcillációk -> "kattogó" karakter
+					// 3 component quick oscillations
 					clickSignal += env * (math.Sin(2*math.Pi*120.0*dt) + 0.6*math.Sin(2*math.Pi*300.0*dt))
 				}
 			}
@@ -89,7 +89,7 @@ func (g *generator) Generate(fileName string) error {
 }
 
 func (g *generator) generateClickTimes(ratePerSec float64, durationSec int) []float64 {
-	// Poisson-szerű események: exponenciális interarrival
+	// Poisson events: exponential intervals
 	var times []float64
 	t := 0.0
 	r := ratePerSec
@@ -97,7 +97,7 @@ func (g *generator) generateClickTimes(ratePerSec float64, durationSec int) []fl
 		if r <= 0 {
 			break
 		}
-		// exponenciális mintavétel
+		// exponential sampling
 		u := rand.Float64()
 		inter := -math.Log(1.0-u) / r
 		t += inter
