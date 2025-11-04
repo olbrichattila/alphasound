@@ -36,7 +36,7 @@ func main() {
 
 func getParameters() (string, string, error) {
 	if len(os.Args) != 3 {
-		return "", "", fmt.Errorf("usage alphagen <config> <output>\nNote: without extension")
+		return "", "", fmt.Errorf("usage:\nalphagen <config> <output>\nNote: without extension\n")
 	}
 
 	return os.Args[1] + ".yaml", os.Args[2] + ".wav", nil
