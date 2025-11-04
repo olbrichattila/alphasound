@@ -1,5 +1,6 @@
 package generator
 
+// @TODO optimize memory usage, writing to wav
 import (
 	"alphagen/internal/contracts"
 	"alphagen/internal/dto"
