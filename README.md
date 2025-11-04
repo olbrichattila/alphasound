@@ -18,6 +18,17 @@ Run:
 alphagen <config> <output>
 ```
 
+Example if compiled:
+```bash
+./alphagen config alphasound
+```
+
+Example if NOT compiled:
+```
+go run . config alphasound
+```
+
+
 > Note: File names without extension
 
 ### Config
