@@ -1,0 +1,43 @@
+Suggested frequency ranges for guided meditation, 3 to 1 method, programming, absorption, coming back.
+
+
+durations:
+  # 1️⃣ High alpha – initial relaxation
+  - leftBaseHz: 13.5       # High alpha
+    binauralBeatHz: 13.5
+    carrierHz: 210
+
+  # 2️⃣ Mid alpha – physical relaxation, body scan
+  - leftBaseHz: 12.0       # Mid alpha
+    binauralBeatHz: 12.0
+    carrierHz: 208
+
+  # 3️⃣ Lower alpha – mental relaxation, visualization
+  - leftBaseHz: 10.5       # Lower alpha
+    binauralBeatHz: 10.5
+    carrierHz: 205
+
+  # 4️⃣ Upper theta – pre-meditation, imagining your ideal place
+  - leftBaseHz: 9.0        # Upper theta
+    binauralBeatHz: 9.0
+    carrierHz: 202
+
+  # 5️⃣ Mid theta – deep relaxation, inner work
+  - leftBaseHz: 7.0        # Mid theta
+    binauralBeatHz: 7.0
+    carrierHz: 198
+
+  # 6️⃣ Low theta – very deep meditative absorption
+  - leftBaseHz: 5.5        # Low theta
+    binauralBeatHz: 5.5
+    carrierHz: 195
+
+  # 7️⃣ Gradual return – upper theta / lower alpha
+  - leftBaseHz: 8.5        # Upper theta / low alpha
+    binauralBeatHz: 8.5
+    carrierHz: 198
+
+  # 8️⃣ Mid alpha – final reintegration
+  - leftBaseHz: 11.0       # Mid alpha
+    binauralBeatHz: 11.0
+    carrierHz: 202
